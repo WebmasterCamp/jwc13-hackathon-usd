@@ -49,9 +49,22 @@ body {
     }
 }
 
+.coin_down_longer {
+    animation: coin_down_longer 2s;
+}
+
+@keyframes coin_down_longer {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(40vh);
+    }
+}
+
 .pig_eatcoin {
     animation: pig_eatcoin 500ms;
-    animation-delay: 0.7s;
+    animation-delay: 1s;
 }
 
 @keyframes pig_eatcoin {

@@ -26,8 +26,8 @@ export default function CreateGoal() {
 
     return (
         <>
-            <div className="text-center pt-16 mb-8">
-                <h1 className="text-3xl font-semibold text-pigky-text">
+            <div className="text-center pt-20 mb-8">
+                <h1 className="text-3xl font-semibold text-white">
                     Create Goal
                 </h1>
             </div>
