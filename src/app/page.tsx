@@ -54,7 +54,7 @@ export default function Home() {
         <>
             <div
                 className={`h-full flex flex-col justify-between ${
-                    coins[coinIdx] === "null" ? "pt-12" : "pt-24"
+                    coins[coinIdx] === "null" ? "pt-24" : "pt-24"
                 } pb-16`}
             >
                 {!goal && (
@@ -71,7 +71,7 @@ export default function Home() {
                         <div className="flex justify-center mb-8">
                             <button
                                 type="button"
-                                className="bg-white rounded-lg py-2 px-6 shadow-md"
+                                className="bg-white rounded-lg py-2 px-6 shadow-md transition active:scale-95"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     insertCoin(coinIdx);
@@ -152,7 +152,7 @@ export default function Home() {
                         <div className="flex justify-center">
                             <Link
                                 href="/create"
-                                className="w-[140px] text-center rounded-lg bg-pigky-main text-white p-2"
+                                className="w-[140px] text-center rounded-lg bg-pigky-main text-white p-2 transition active:scale-95"
                             >
                                 Create Goal
                             </Link>
@@ -161,16 +161,40 @@ export default function Home() {
                     {!!goal && (
                         <div className="flex justify-center">
                             <div>
-                                <h1 className="text-center text-xl font-semibold text-pigky-text mb-4">
-                                    {goal.name}
-                                </h1>
-                                <div className="relative w-[257px] border-2 border-pigky-main p-1 rounded-[15px] bg-white">
-                                    <div className="h-[22px] bg-gradient-to-r from-[#FFA9A9] to-[#FF4286] text-white px-2 py-1 rounded-lg" style={{
-                                        width: `${(goal.progress / goal.goal) * 100}%`
-                                    }}>
+                                <div className="flex justify-center items-center gap-3">
+                                    <h1 className="text-center text-xl font-semibold text-pigky-text mb-4">
+                                        {goal.name}
+                                    </h1>
+                                    <button
+                                        type="button"
+                                        className="text-xs bg-red-100 text-red-500 px-2 py-0.5 rounded-md font-semibold mb-3 transition active:scale-95"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            setGoal(null);
+                                            localStorage.removeItem("goal");
+                                        }}
+                                    >
+                                        <i className="fas fa-trash"></i> Clear
+                                    </button>
+                                </div>
+                                <div className="relative mx-auto w-[257px] border-2 border-pigky-main p-1 rounded-[15px] bg-white">
+                                    <div
+                                        className="h-[22px] bg-gradient-to-r from-[#FFA9A9] to-[#FF4286] text-white px-2 py-1 rounded-lg"
+                                        style={{
+                                            width: `${
+                                                (goal.progress / goal.goal) *
+                                                100
+                                            }%`,
+                                        }}
+                                    >
                                         <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-semibold text-pigky-text whitespace-nowrap">
                                             {goal.progress.toLocaleString()} /{" "}
-                                            {goal.goal.toLocaleString()} {"("}{((goal.progress / goal.goal) * 100).toFixed(2)}%{")"}
+                                            {goal.goal.toLocaleString()} {"("}
+                                            {(
+                                                (goal.progress / goal.goal) *
+                                                100
+                                            ).toFixed(2)}
+                                            %{")"}
                                         </p>
                                     </div>
                                 </div>

@@ -58,7 +58,7 @@ body {
         transform: translateY(0px);
     }
     to {
-        transform: translateY(40vh);
+        transform: translateY(30vh);
     }
 }
 

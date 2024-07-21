@@ -62,7 +62,7 @@ export default function CreateGoal() {
                     <div className="flex justify-center">
                         <button
                             type="submit"
-                            className="w-[140px] rounded-lg bg-pigky-main text-white p-2"
+                            className="w-[140px] rounded-lg bg-pigky-main text-white p-2 transition active:scale-95"
                         >
                             Save
                         </button>
