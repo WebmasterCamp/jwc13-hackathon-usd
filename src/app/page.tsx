@@ -34,8 +34,15 @@ export default function Home() {
             amount = +coins[_coinIdx];
         }
         goal.progress += amount;
-        setGoal({ ...goal });
-        localStorage.setItem("goal", JSON.stringify(goal));
+        if (goal.progress >= goal.goal) {
+            alert("ยินดีด้วย! คุณทำตามเป้าหมายสำเร็จแล้ว ✨");
+            setGoal(null);
+            localStorage.removeItem("goal");
+        } else {
+            setGoal({ ...goal });
+            localStorage.setItem("goal", JSON.stringify(goal));
+        }
+
         await new Promise((r) => setTimeout(r, 2000));
         setCoinAnimate("");
         setPigAnimate("");

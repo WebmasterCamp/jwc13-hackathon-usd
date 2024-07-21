@@ -17,7 +17,7 @@ export default function CalendarPage() {
                     {date.toLocaleString("default", { month: "long" })}
                 </h1>
             </div>
-            <div className="p-6 bg-white">
+            <div className="p-6 bg-white shadow-lg">
                 <div className="grid grid-cols-7 gap-3 text-center text-xs">
                     <p>Sun</p>
                     <p>Mon</p>
